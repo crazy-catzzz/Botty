@@ -4,6 +4,7 @@ import { cmd_handler_obj } from "./handlers/commandHandler.ts";
 // Bun environment variables
 const token : string = Bun.env.BOT_TOKEN;
 
+// Command Handler
 cmd_handler_obj.init();
 
 // God I love typed languages

@@ -18,7 +18,7 @@ class CommandHandler {
       const { cmd_obj } = await import(`../commands/${file}`);
 
       this.commands.set(cmd_obj.name, cmd_obj);
-      console.log(`[COMMAND HANDLER] Loaded ${cmd_obj.name}`);
+      handler_log(`Loaded ${cmd_obj.name}`);
     }
   }
 
