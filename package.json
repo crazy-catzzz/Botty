@@ -1,0 +1,22 @@
+{
+  "name": "botty",
+  "module": "app.ts",
+  "type": "module",
+  "license": "MIT",
+  "devDependencies": {
+    "bun-types": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "scripts": {
+    "start": "bun run app.ts",
+    "deployGuildCmds": "bun run ./tools/deploy_guild_commands.ts",
+    "deleteGuildCmds": "bun run ./tools/delete_guild_commands.ts",
+    "deployGlobalCmds": "bun run ./tools/deploy_global_commands.ts",
+    "deleteGlobalCmds": "bun run ./tools/delete_global_commands.ts"
+  },
+  "dependencies": {
+    "discord.js": "^14.13.0"
+  }
+}
