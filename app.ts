@@ -1,27 +1,19 @@
-import { Client, Events, GatewayIntentBits } from "discord.js";
-import { cmd_handler_obj } from "./handlers/commandHandler.ts";
+import { Events, GatewayIntentBits } from "discord.js";
+import { BottyClient } from "./types/BottyClient.ts";
+
+import { event_handler_obj } from "./handlers/eventHandler.ts";
 
 // Bun environment variables
 const token : string = Bun.env.BOT_TOKEN;
 
-// Command Handler
-cmd_handler_obj.init();
-
 // God I love typed languages
-const bot : Client = new Client(
+const bot : BottyClient = new BottyClient(
   {
     intents: [GatewayIntentBits.Guilds]
   }
 );
 
-bot.once(Events.ClientReady, client => {
-  console.log("Ready!");
-});
-bot.on(Events.InteractionCreate, interaction => {
-  if (!interaction.isChatInputCommand()) return;
-
-  cmd_handler_obj.exec_cmd(interaction);
-});
-
+// Event handler
+event_handler_obj.init(bot);
 
 bot.login(token);
