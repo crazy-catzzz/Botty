@@ -9,7 +9,7 @@ class CommandHandler {
   commands : Map = new Map();
 
   init = async () => {
-    console.log("[COMMAND HANDLER] Initializing commands...")
+    handler_log("Initializing commands...");
 
     const commands_dir = resolve("./commands");
     const commands_files = readdirSync(commands_dir);
