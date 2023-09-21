@@ -2,9 +2,9 @@ import { REST, Routes } from "discord.js";
 import { readdirSync } from "fs";
 import { resolve, join } from "path";
 
-const token = Bun.env.BOT_TOKEN;
-const clientId = Bun.env.CLIENT_ID;
-const guildId = Bun.env.GUILD_ID;
+const token = Bun.env.BOT_TOKEN!;
+const clientId = Bun.env.CLIENT_ID!;
+const guildId = Bun.env.GUILD_ID!;
 
 const cmd_array = [];
 
@@ -19,7 +19,7 @@ for (const file of cmd_files) {
   const { cmd_obj } = await import(file_path);
 
   // Check for missing parameters
-  if (!'data' in cmd_obj || !'execute' in cmd_obj) console.log(`[WARNING] The ${cmd_obj.name} command is missing required data or execute parameters!`);
+  if (!('data' in cmd_obj) || !('execute' in cmd_obj)) console.log(`[WARNING] The ${cmd_obj.name} command is missing required data or execute parameters!`);
   
   cmd_array.push(cmd_obj.data.toJSON());
 }
@@ -30,7 +30,7 @@ const rest : REST = new REST().setToken(token);
   try {
     console.log(`Refreshing ${cmd_array.length} application slash commands...`);
 
-    const data = await rest.put(
+    const data : any = await rest.put(
       Routes.applicationGuildCommands(clientId, guildId), 
       { body: cmd_array },
     );
