@@ -5,5 +5,5 @@ export interface IEvent {
   name : Events;
   once : boolean;
 
-  execute : (); 
+  execute() : void; 
 }
