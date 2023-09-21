@@ -7,7 +7,7 @@ class Ping implements ICommand {
 
   data = new SlashCommandBuilder().setName(this.name).setDescription(this.description);
 
-  execute = async (interaction : any) => {
+  async execute(interaction : any) {
     await interaction.reply("Pong!");
   }
 }
