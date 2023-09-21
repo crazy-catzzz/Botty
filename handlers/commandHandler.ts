@@ -6,7 +6,7 @@ const handler_log = (str : string) => {
 }
 
 class CommandHandler {
-  commands : Map = new Map();
+  commands : Map<string, any> = new Map();
 
   init = async () => {
     handler_log("Initializing commands...");
