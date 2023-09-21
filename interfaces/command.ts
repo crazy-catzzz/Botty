@@ -5,5 +5,6 @@ export interface ICommand {
   description : string;
 
   data : SlashCommandBuilder;
+  
   execute(interaction : any) : void;
 }
