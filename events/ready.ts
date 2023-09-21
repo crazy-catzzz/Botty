@@ -6,8 +6,8 @@ class Ready implements IEvent {
   name = Events.ClientReady;
   once = true;
 
-  execute = (client : BottyClient) => {
-    console.log("Ready!");
+  execute(client : BottyClient) : void {
+    console.log(`Ready! Logged in as ${client.user?.tag}`);
   }
 }
 

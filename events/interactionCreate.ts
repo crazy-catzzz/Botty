@@ -6,7 +6,7 @@ class InteractionCreate implements IEvent {
   name = Events.InteractionCreate;
   once = false;
 
-  execute = (interaction : any) => {
+  execute(interaction : any) : void {
     const bot = interaction.client;
 
     if (!interaction.isChatInputCommand()) return;
