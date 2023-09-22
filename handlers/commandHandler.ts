@@ -8,7 +8,7 @@ const handler_log = (str : string) => {
 class CommandHandler {
   commands : Map<string, any> = new Map();
 
-  init = async () => {
+  async init() {
     handler_log("Initializing commands...");
 
     const commands_dir = resolve("./commands");
@@ -22,7 +22,7 @@ class CommandHandler {
     }
   }
 
-  exec_cmd = async (cmd_interaction : any) => {
+  async exec_cmd(cmd_interaction : any) {
     const cmd_name : string = cmd_interaction.commandName;
 
     handler_log(`Executing ${cmd_name}`);

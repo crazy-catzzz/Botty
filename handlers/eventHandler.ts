@@ -7,7 +7,7 @@ const handler_log = (str : string) => {
 }
 
 class EventHandler {
-  init = async (client : BottyClient) => {
+  async init(client : BottyClient) {
     handler_log("Initializing events...");
 
     const event_dir = resolve("./events");
