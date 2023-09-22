@@ -17,6 +17,9 @@ class CommandHandler {
     for (const file of commands_files) {
       const { cmd_obj } = await import(`../commands/${file}`);
 
+      // Skips the file if it's empty
+      if (cmd_obj == undefined) continue;
+
       this.commands.set(cmd_obj.name, cmd_obj);
       handler_log(`Loaded ${cmd_obj.name}`);
     }

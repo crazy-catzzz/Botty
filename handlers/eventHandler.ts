@@ -16,6 +16,9 @@ class EventHandler {
     for (const file of event_files) {
       const { event_obj } = await import(`../events/${file}`);
 
+      // Skips the file if it's empty'
+      if (event_obj == undefined) continue;
+
       if (event_obj.once) {
         client.once(event_obj.name, (...args) => event_obj.execute(...args));
       } else {

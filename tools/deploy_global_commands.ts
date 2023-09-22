@@ -17,6 +17,9 @@ for (const file of cmd_files) {
   const file_path = join(cmd_dir, file);
   const { cmd_obj } = await import(file_path);
 
+  // Skips the file if it's empty
+  if (cmd_obj == undefined) continue;
+
   // Check for missing parameters
   if (!('data' in cmd_obj) || !('execute' in cmd_obj)) console.log(`[WARNING] The ${cmd_obj.name} command is missing required data or execute parameters!`);
   
