@@ -1,6 +1,5 @@
 import { IEvent } from "../interfaces/event.ts";
 import { Events } from "discord.js";
-import { BottyClient } from "../types/BottyClient.ts";
 
 class InteractionCreate implements IEvent {
   name = Events.InteractionCreate;

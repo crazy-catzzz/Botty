@@ -1,4 +1,4 @@
-import { Events, GatewayIntentBits } from "discord.js";
+import { GatewayIntentBits } from "discord.js";
 import { BottyClient } from "./types/BottyClient.ts";
 
 // Bun environment variables
