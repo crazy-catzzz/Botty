@@ -2,7 +2,18 @@ import { readdirSync } from "fs";
 import { resolve } from "path";
 import { BottyClient } from "../types/BottyClient.ts";
 
-class EventHandler {
+// Singleton Event Handler
+export class EventHandler {
+  // Singleton stuff
+  private static _instance : EventHandler;
+
+  private constructor() {};
+
+  public static get instance() {
+    return this._instance || (this._instance = new this());
+  }
+
+  // Event handler stuff
   async init(client : BottyClient) {
     this.log("Initializing events...");
 
@@ -29,5 +40,3 @@ class EventHandler {
     console.log(`[EVENT HANDLER] ${str}`);
   }
 }
-
-export const event_handler_obj = new EventHandler();

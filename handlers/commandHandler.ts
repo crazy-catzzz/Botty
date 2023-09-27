@@ -1,7 +1,18 @@
 import { readdirSync } from "fs";
 import { resolve } from "path";
 
-class CommandHandler {
+// Singleton command handler
+export class CommandHandler {
+  // Singleton stuff
+  private static _instance : CommandHandler;
+
+  private constructor() {};
+
+  public static get instance() {
+    return this._instance || (this._instance = new this());
+  }
+
+  // Command handler stuff
   commands : Map<string, any> = new Map();
 
   async init() {
@@ -44,5 +55,3 @@ class CommandHandler {
     console.log(`[COMMAND HANDLER] ${str}`);
   }
 }
-
-export const cmd_handler_obj = new CommandHandler();
