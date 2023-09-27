@@ -2,13 +2,9 @@ import { readdirSync } from "fs";
 import { resolve } from "path";
 import { BottyClient } from "../types/BottyClient.ts";
 
-const handler_log = (str : string) => {
-  console.log(`[EVENT HANDLER] ${str}`);
-}
-
 class EventHandler {
   async init(client : BottyClient) {
-    handler_log("Initializing events...");
+    this.log("Initializing events...");
 
     const event_dir = resolve("./events");
     const event_files = readdirSync(event_dir);
@@ -25,8 +21,12 @@ class EventHandler {
         client.on(event_obj.name, (...args) => event_obj.execute(...args));
       }
 
-      handler_log(`Loaded ${file}`);
+      this.log(`Loaded ${file}`);
     }
+  }
+
+  log(str : string) {
+    console.log(`[EVENT HANDLER] ${str}`);
   }
 }
 
