@@ -1,5 +1,7 @@
 # Botty
 
+[![CodeFactor](https://www.codefactor.io/repository/github/crazy-catzzz/botty/badge/master)](https://www.codefactor.io/repository/github/crazy-catzzz/botty/overview/master)
+
 Botty is a simple TypeScript template Discord bot, complete with a command handler and an event handler.
 
 # Installation
